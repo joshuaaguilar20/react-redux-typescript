@@ -1,0 +1,82 @@
+{
+  "name": "react-redux-typescript",
+  "description": "",
+  "version": "0.1.0",
+  "private": true,
+  "author": "",
+  "repository": "",
+  "homepage": "",
+  "license": "",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start:client": "react-scripts start",
+    "start:lambdas": "netlify-lambda serve lambdas/src",
+    "start": "concurrently 'npm run start:client' 'npm run start:lambdas'",
+    "build:client": "react-scripts build",
+    "build:lambdas": "netlify-lambda build lambdas/src",
+    "build": "concurrently 'npm run build:client' 'npm run build:lambdas'",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "reinstall": "rm -rf ./node_modules && npm install",
+    "ci-check": "npm run prettier && npm run tsc && npm run test",
+    "prettier": "prettier --list-different 'src/**/*.ts' || (echo '\nPlease run the following command to fix:\nnpm run prettier:fix\n'; exit 1)",
+    "prettier:fix": "prettier --write 'src/**/*.ts'",
+    "tsc": "tsc -p ./ --noEmit",
+    "tsc:watch": "tsc -p ./ --noEmit -w",
+    "deploy": "openode deploy"
+  },
+  "dependencies": {
+    "@babel/polyfill": "7.4.3",
+    "@emotion/core": "10.0.10",
+    "@emotion/styled": "10.0.10",
+    "@types/aws-lambda": "8.10.24",
+    "@types/jest": "24.0.11",
+    "@types/node": "11.13.7",
+    "@types/prop-types": "15.7.1",
+    "@types/react": "16.8.14",
+    "@types/react-dom": "16.8.4",
+    "@types/react-redux": "7.0.8",
+    "@types/react-router-dom": "4.3.2",
+    "axios": "0.18.0",
+    "connected-react-router": "6.4.0",
+    "cuid": "2.1.6",
+    "fast-deep-equal": "2.0.1",
+    "formik": "1.5.2",
+    "netlify-lambda": "1.4.5",
+    "prettier": "1.17.0",
+    "prop-types": "15.7.2",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "react-redux": "7.0.2",
+    "react-redux-typescript-scripts": "1.5.0",
+    "react-router-dom": "5.0.0",
+    "react-scripts": "3.0.0",
+    "react-testing-library": "6.1.2",
+    "react-toastify": "5.1.0",
+    "redux": "4.0.1",
+    "redux-observable": "1.1.0",
+    "reselect": "4.0.0",
+    "rxjs": "6.5.1",
+    "tslib": "1.9.3",
+    "typesafe-actions": "4.1.2",
+    "typescript": "3.4.5",
+    "utility-types": "3.5.0",
+    "yup": "0.27.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/yup": "0.26.12",
+    "concurrently": "4.1.0"
+  }
+}
